@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="style.css">
+	<title>Form Submit</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+	<div class="content">
+        <center>
+        <form method="post" action="" name="product" id="product">
+            <h1>Rajadhani Monthly Expense</h1>
+            <p style="font-size: 10px;">Rajadhani Gardens</p>
+            
+            <label for="naem">Date*</label>
+            <input class="fil" type="date" name="Date" placeholder="" required>
+
+            <label for="naem">Rent Amount*</label>
+            <input class="fil" type="text" name="RentAmount" placeholder="Rent Amount" required>
+
+            <label for="naem">Wifi bills*</label>
+            <input class="fil" type="text" name="Wifibills" placeholder="Wifi bills" required>
+
+            <label for="naem">Another Expense</label>
+            <input class="fil" type="text" name="AnotherExpense" placeholder="Another Expense">
+
+            <label for="naem">Total Expense*</label>
+            <input class="fil" type="text" name="TotalExpense" placeholder="Total Expense" required>
+
+            <label for="naem">Next Month Requirement</label>
+            <input class="fil" style="height: 100px; font-weight: bold; font-size: 20px;" type="text" name="CurrentBills" placeholder="Requirement">
+
+            <button class="click">Submit &#10132;</button>
+            
+            <p style="  font-size: 10px; color: rgb(33, 33, 33); margin: 6px;">Ameen.s</p>
+
+        </form>
+        </center>
+      
+    </div>
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbyiV1OEuZxxOLPYG4ZFyXEYGohAw2uM9YNW9wt5SNXS9SpYkZR4-1dolKkCaW7aL2XF/exec'
+        const form = document.forms['product']
+      
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => alert("Thank you! your form is submitted successfully." ))
+            .then(() => {  window.location.reload(); })
+            .catch(error => console.error('Error!', error.message))
+        })
+      </script>
+    <br>
+</body>
+</html>
+
